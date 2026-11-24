@@ -1,0 +1,59 @@
+[project]
+name = "gcp-batch-cloud-copy"
+version = "0.1.0"
+description = "A python package and container specification to do some miscellaneous cloud storage operations on GCP Batch"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Devin McCabe", email = "dmccabe@broadinstitute.org" }
+]
+requires-python = ">=3.12"
+keywords = ["gcp", "batch", "gcs", "s3", "cloud-storage", "copy"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Archiving",
+    "Typing :: Typed",
+]
+dependencies = [
+    "google-cloud-batch>=0.22.5",
+    "protobuf>=4.21.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/broadinstitute/gcp-batch-cloud-copy"
+Source = "https://github.com/broadinstitute/gcp-batch-cloud-copy"
+Changelog = "https://github.com/broadinstitute/gcp-batch-cloud-copy/blob/main/CHANGELOG.md"
+
+[build-system]
+requires = ["uv_build>=0.12.7,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "boto3>=1.44.9",
+    "google-cloud-secret-manager>=2.32.0",
+    "google-cloud-storage>=3.17.1",
+    "pandas>=3.1.1",
+    "boto3-stubs>=1.44.9",
+    "pandas-stubs>=3.1.0.261029",
+    "pyrefly>=1.5.0",
+    "ruff>=0.17.6",
+    "types-protobuf>=7.35.1.20261122",
+]
+[tool.ruff.lint]
+extend-select = ["I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["gcp_batch_cloud_copy"]
+
+[tool.pyrefly]
+project-includes = ["src"]
+search-path = ["src"]
+python-version = "3.12"
